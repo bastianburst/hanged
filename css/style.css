@@ -1,0 +1,38 @@
+body{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background: #000046;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background-size:cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+}
+h3{
+    font-family: sans-serif;
+    color:white;
+}
+#pantalla{
+    border: solid  2px white;
+    background:rgba(66,122,179,0.28);
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.25);   
+}
+#boton{
+    background-color:#c48c24;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+    padding: .2em;
+    border: solid 2px white;
+    display: inline-block;
+    border-radius:5px;
+    width:50%;
+    cursor:pointer;
+}
+#boton:hover{ /* Estilo que se activa al pasar el puntero sobre el boton */
+    background-color: rgb(66, 123, 177);
+}
