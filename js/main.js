@@ -4,11 +4,11 @@ let ctx;
 let canvas;
 let palabra;
 let letras = "QWERTYUIOPASDFGHJKLÑZXCVBNM";
-let colorTecla = "#49788e";
+let colorTecla = "rgba(0,0,0,0.54)";
 let colorMargen = "white";
-let inicioX = 200;
+let inicioX = 210;
 let inicioY = 300;
-let lon = 35;
+let lon = 40;
 let margen = 20;
 let pistaText = "";
 
@@ -26,7 +26,7 @@ let errores = 0;
 palabras_array.push("LAMPARAAMISPIES");
 palabras_array.push("LINAJEESCOGIDO");
 palabras_array.push("PRINCIPEDEPAZ");
-/*Frases estas se mostrarán en el final del juuego ya que viene con espacios*/
+/*Frases estas se mostrarán en el final del juego ya que viene con espacios*/
 frases_array.push("LAMPARA A MIS PIES");
 frases_array.push("LINAJE ESCOGIDO");
 frases_array.push("PRINCIPE DE PAZ");
@@ -64,17 +64,17 @@ function dibujaTecla() {
     ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
 
     ctx.fillStyle = "white";
-    ctx.font = "bold 20px courier";
-    ctx.fillText(this.letra, this.x + this.ancho / 2 - 5, this.y + this.alto / 2 + 5);
+    ctx.font = "bold 28px Nunito";
+    ctx.fillText(this.letra, this.x + this.ancho / 2.6 - 8, this.y + this.alto / 2.6 + 8);
 }
 
 /* Dibua la letra y su caja */
 function dibujaLetraLetra() {
     //console.log('me activé');
-    var w = this.ancho;
-    var h = this.alto;
+    let w = this.ancho;
+    let h = this.alto;
     ctx.fillStyle = "black";
-    ctx.font = "bold 40px Courier";
+    ctx.font = "bold 40px Nunito";
     ctx.fillText(this.letra, this.x + w / 2 - 12, this.y + h / 2 + 14);
 }
 function dibujaCajaLetra() {
@@ -104,7 +104,7 @@ function pistaFunction(frase) {
     }
     // Pintamos la palabra en el canvas , en este ejemplo se pinta arriba a la izquierda //
     ctx.fillStyle = "white";  // Aqui ponemos el color de la letra
-    ctx.font = "bold 30px Nunito";  // aqui ponemos el tipo y tamaño de la letra
+    ctx.font = "bold 45px Nunito";  // aqui ponemos el tipo y tamaño de la letra
     ctx.fillText("Pista: " + pista, 18, 500);  // aqui ponemos la frase en nuestro caso la variable pista , seguido de la posx y posy
 }
 
@@ -171,7 +171,7 @@ function horca(errores) {
     var imagen = new Image();
     imagen.src = "img/ahorcado" + errores + ".png";
     imagen.onload = function () {
-        ctx.drawImage(imagen, 390, 0, 230, 230);
+        ctx.drawImage(imagen, 400, 0, 230, 230);
     }
     /*************************************************
     // Imagen 2 mas pequeña a un lado de la horca //       
@@ -241,7 +241,7 @@ function gameOver(errores) {
         ctx.fillText("Lo sentimos, la frase era: ", 110, 280);
     }
     //Aqui pasamos la frase en vez de la palabra que es lo que imprimiremos
-    ctx.font = "bold 80px Nunito";
+    ctx.font = "bold 85px Nunito";
     lon = (canvas.width - (frase.length * 48)) / 2;
     ctx.fillText(frase, lon, 380);
     horca(errores);

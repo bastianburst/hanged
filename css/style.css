@@ -2,9 +2,9 @@ body{
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    background: #000046;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background: #aa4b6b;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size:cover;
     background-attachment: fixed;
     background-repeat: no-repeat; 
@@ -12,10 +12,11 @@ body{
 h3{
     font-family: sans-serif;
     color:white;
+    font-size:1.5em;
 }
 #pantalla{
     border: solid  2px white;
-    background:rgba(66,122,179,0.28);
+    background:rgba(0,0,0,0.18);
     display: inline-block;
     border-radius: 5px;
     box-shadow: 2px 4px 5px rgba(0,0,0,0.25);   
@@ -23,7 +24,7 @@ h3{
 #boton{
     background-color:#c48c24;
     color: white;
-    font-size: 20px;
+    font-size: 1.6em;
     text-align: center;
     font-weight: bolder;
     padding: .2em;
