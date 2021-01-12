@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Sebastian Gallego - Bastianburst" />
+    <meta name="description" content="Hanged man game implementation with Javascript HTML y CSS" />
     <title>Hanged_man_game</title>
-    <link rel="icon" href="img/hangman-game.svg"/>
-    <link rel="stylesheet"  href="css/style.css"/>
+    <link rel="icon" href="img/hangman-game.svg" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
     <h3>Hanged man game</h3>
+
     <canvas id="pantalla" width="1260px" height="550px">
         <!-- etiqueta del canvas con sus medidas en la pantalla -->
         Tu navegador no soporta Canvas.
     </canvas>
     <!-- El boton que nos sirve para recargar la pagina y asi generar una nueva palabra y volver a jugar -->
-    <button id="boton" type="reset" onclick="javascript:window.location.reload();">Reiniciar</button>
+    <div class="contenedor_controles">
+        <div class="contenedor_controles_interno">
+            <p class="texto_contenedor_controles">Elige una de las opciones y dale click en reiniciar, o si gustas déjalo en orden aleatorio.</p>
+            <button id="boton" type="reset" onclick="javascript:window.location.reload();">Reiniciar</button>
+            <select name="selectorgame" id="selectorgame" class="selectorgame" onchange="changeQuestion()" size="3">
+                <option value="aleatorio">Aleatorio</option>
+            </select>
+            <div id="shownumberselected">Aleatorio</div>
+        </div>
+    </div>
     <script src="js/main.js"></script>
 </body>
-
 </html>

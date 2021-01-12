@@ -26,13 +26,53 @@ let errores = 0;
 palabras_array.push("LAMPARAAMISPIES");
 palabras_array.push("LINAJEESCOGIDO");
 palabras_array.push("PRINCIPEDEPAZ");
+palabras_array.push("SALVOSPORGRACIA");
+palabras_array.push("CUEVADEADULAM");
 /*Frases estas se mostrarán en el final del juego ya que viene con espacios*/
 frases_array.push("LAMPARA A MIS PIES");
 frases_array.push("LINAJE ESCOGIDO");
 frases_array.push("PRINCIPE DE PAZ");
+frases_array.push("SALVOS POR GRACIA");
+frases_array.push("CUEVA DE ADULAM");
 
 
+//llenar select de forma dinámica
+let showOptionsinFront = document.getElementById("selectorgame");
+for (i = 0; i <= palabras_array.length - 1; i++) {
+    option = document.createElement("option");
+    option.value = i;
+    option.text = i + 1;
+    showOptionsinFront.appendChild(option);
+}
+//console.log(showOptionsinFront);
 
+//Sacar la opción elegida del local storage
+let selectedgameOption = localStorage.getItem("codigojuego");
+//console.log(selectedgameOption);
+
+//Función para cambiar la opción del juego con el selector
+function changeQuestion(value) {
+    let code = document.getElementById("selectorgame").value;
+    console.log(code);
+    localStorage.setItem('codigojuego', code);
+}
+
+/*Mostrar opción seleccionada en pantalla*/
+let showOptionSelected = function () {
+    //console.log('activado');
+    //lógica para mostrar en el front, si es null pone aleatorio, si es aleatorio pone lo que está en local storage
+    //si no pone el número correspondiente
+    let elementNumber = document.getElementById("shownumberselected");
+    //console.log(selectedgameOption);
+    if (selectedgameOption == "aleatorio") {
+        elementNumber.innerHTML = (selectedgameOption);
+    } else if (selectedgameOption == null) {
+        elementNumber.innerHTML = "aleatorio";
+    } else {
+        elementNumber.innerHTML = (parseInt(selectedgameOption) + 1);
+    }
+    //console.log(elementNumber);
+}
 /* Objetos */
 function Tecla(x, y, ancho, alto, letra) {
     this.x = x;
@@ -91,13 +131,19 @@ function pistaFunction(frase) {
     let pista = ""; // Se crea la variable local pista que contendra nuestra frase de pista
     switch (frase) {  // Se crea un switch para poder controlar las pistas segun la palabra 
         case 'LAMPARA A MIS PIES':   // Se debera hacer un case por cada palabra 
-        pista = "Su palabra";
+            pista = "Su palabra";
             break;     // Es importante el break en cada case 
         case 'LINAJE ESCOGIDO':
-        pista = "Es una de las cosas que somos para Dios";
+            pista = "Es una de las cosas que somos para Dios";
             break;
         case 'PRINCIPE DE PAZ':
-        pista = "Es una de las cosas que Jesús es";
+            pista = "Es una de las cosas que Jesús es";
+            break;
+        case 'SALVOS POR GRACIA':
+            pista = "Es una de las cosas que somos en Dios";
+            break;
+        case 'CUEVA DE ADULAM':
+            pista = "Donde un personaje biblico se escondió";
             break;
         default:  // El defaul se puede omitir // 
             pista = "No hay pistas";
@@ -140,30 +186,64 @@ function teclado() {
 
 /* aqui obtenemos nuestra palabra aleatoriamente y la dividimos en letras */
 function pintaPalabra() {
-    let p = Math.floor(Math.random() * palabras_array.length);
-    //Asignamos del array de palabras
-    palabra = palabras_array[p];
-    //Asignamos del array de frases
-    frase = frases_array[p];
-    //console.log(palabra);
-    //console.log(p);
-    //console.log(frase);
-    pistaFunction(frase);
+    //console.log(selectedgameOption);
+    if (selectedgameOption == null || selectedgameOption == "aleatorio") {
+        //console.log("null");
+        let p = Math.floor(Math.random() * palabras_array.length);
+        //Asignamos del array de palabras
+        palabra = palabras_array[p];
+        //Asignamos del array de frases
+        frase = frases_array[p];
+        //console.log(palabra);
+        //console.log(p);
+        //console.log(frase);
+        pistaFunction(frase);
 
-    let w = canvas.width;
-    let len = palabra.length;
-    let ren = 0;
-    let col = 0;
-    let y = 230;
-    let lon = 50;
-    let x = (w - (lon + margen) * len) / 2;
-    for (let i = 0; i < palabra.length; i++) {
-        letra = palabra.substr(i, 1);
-        miLetra = new Letra(x, y, lon, lon, letra);
-        miLetra.dibuja();
-        letras_array.push(miLetra);
-        x += lon + margen;
+        let w = canvas.width;
+        let len = palabra.length;
+        let ren = 0;
+        let col = 0;
+        let y = 230;
+        let lon = 50;
+        let x = (w - (lon + margen) * len) / 2;
+        for (let i = 0; i < palabra.length; i++) {
+            letra = palabra.substr(i, 1);
+            miLetra = new Letra(x, y, lon, lon, letra);
+            miLetra.dibuja();
+            letras_array.push(miLetra);
+            x += lon + margen;
+        }
+
+    } else {
+        //console.log(selectedgameOption);
+        let p = selectedgameOption;
+        //Asignamos del array de palabras
+        palabra = palabras_array[p];
+        //Asignamos del array de frases
+        frase = frases_array[p];
+        //console.log(palabra);
+        //console.log(p);
+        //console.log(frase);
+        pistaFunction(frase);
+
+        let w = canvas.width;
+        let len = palabra.length;
+        let ren = 0;
+        let col = 0;
+        let y = 230;
+        let lon = 50;
+        let x = (w - (lon + margen) * len) / 2;
+        for (let i = 0; i < palabra.length; i++) {
+            letra = palabra.substr(i, 1);
+            miLetra = new Letra(x, y, lon, lon, letra);
+            miLetra.dibuja();
+            letras_array.push(miLetra);
+            x += lon + margen;
+        }
+
     }
+    //Llamar función para mostrar en pantalla la opción seleccionada
+    showOptionSelected();
 }
 
 /* dibujar cadalzo y partes del pj segun sea el caso */
@@ -246,8 +326,7 @@ function gameOver(errores) {
     ctx.fillText(frase, lon, 380);
     horca(errores);
 }
-
-/* Detectar si se a cargado nuestro contexco en el canvas, iniciamos las funciones necesarias para jugar o se le manda msj de error segun sea el caso */
+/* Detectar si se ha cargado nuestro contexto en el canvas, iniciamos las funciones necesarias para jugar o se le manda msj de error segun sea el caso */
 window.onload = function () {
     canvas = document.getElementById("pantalla");
     if (canvas && canvas.getContext) {
@@ -262,3 +341,4 @@ window.onload = function () {
         }
     }
 }
+

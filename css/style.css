@@ -1,5 +1,6 @@
 body{
     width: 100%;
+    font-family: sans-serif;
     margin: 0 auto;
     text-align: center;
     background: #aa4b6b;  /* fallback for old browsers */
@@ -31,9 +32,40 @@ h3{
     border: solid 2px white;
     display: inline-block;
     border-radius:5px;
-    width:50%;
+    width:6em;
     cursor:pointer;
 }
 #boton:hover{ /* Estilo que se activa al pasar el puntero sobre el boton */
     background-color: rgb(66, 123, 177);
+}
+.contenedor_controles{
+    margin-left:5.5em;
+}
+.contenedor_controles_interno{
+    display: flex;
+    justify-content: left;
+}
+.texto_contenedor_controles{
+    color:white;
+    width: 20em;
+    text-align: left;
+    padding: 0;
+    margin:5px 5px 0 0;
+}
+#shownumberselected{
+    text-transform: capitalize;
+    color:white;
+    font-weight: 600;
+    font-size:3.5em;
+    padding: 5px 15px 5px 5px;
+    margin: 0px 15px 0px 5px;
+}
+.selectorgame{
+    background: #2c4f73;
+    color:white;
+    font-weight: 600;
+    font-size:1em;
+    padding: 5px 15px 5px 5px;
+    margin: 0px 15px 0px 10px;
+
 }
