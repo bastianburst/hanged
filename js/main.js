@@ -28,12 +28,19 @@ palabras_array.push("LINAJEESCOGIDO");
 palabras_array.push("PRINCIPEDEPAZ");
 palabras_array.push("SALVOSPORGRACIA");
 palabras_array.push("CUEVADEADULAM");
+palabras_array.push("DOMARLALENGUA");
+palabras_array.push("UNMUNDODEMALDAD");
+
+
 /*Frases estas se mostrarán en el final del juego ya que viene con espacios*/
 frases_array.push("LAMPARA A MIS PIES");
 frases_array.push("LINAJE ESCOGIDO");
 frases_array.push("PRINCIPE DE PAZ");
 frases_array.push("SALVOS POR GRACIA");
 frases_array.push("CUEVA DE ADULAM");
+frases_array.push("DOMAR LA LENGUA");
+frases_array.push("UN MUNDO DE MALDAD");
+
 
 
 //llenar select de forma dinámica
@@ -145,6 +152,13 @@ function pistaFunction(frase) {
         case 'CUEVA DE ADULAM':
             pista = "Donde un personaje biblico se escondió";
             break;
+        case 'DOMAR LA LENGUA':
+            pista = "Lo que debemos hacer para tener una buena vida";
+            break;
+        case 'UN MUNDO DE MALDAD':
+            pista = "Una de las cosas que santiago 3 dice que la lengua es";
+            break;
+        
         default:  // El defaul se puede omitir // 
             pista = "No hay pistas";
     }
