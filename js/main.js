@@ -30,6 +30,7 @@ palabras_array.push("SALVOSPORGRACIA");
 palabras_array.push("CUEVADEADULAM");
 palabras_array.push("DOMARLALENGUA");
 palabras_array.push("UNMUNDODEMALDAD");
+palabras_array.push("NOSEINQUIETEN");
 
 
 /*Frases estas se mostrarán en el final del juego ya que viene con espacios*/
@@ -40,6 +41,8 @@ frases_array.push("SALVOS POR GRACIA");
 frases_array.push("CUEVA DE ADULAM");
 frases_array.push("DOMAR LA LENGUA");
 frases_array.push("UN MUNDO DE MALDAD");
+frases_array.push("NO SE INQUIETEN");
+
 
 
 
@@ -157,6 +160,9 @@ function pistaFunction(frase) {
             break;
         case 'UN MUNDO DE MALDAD':
             pista = "Una de las cosas que santiago 3 dice que la lengua es";
+            break;
+        case 'NO SE INQUIETEN':
+            pista = "Si oramos, Dios nos dice";
             break;
         
         default:  // El defaul se puede omitir // 
