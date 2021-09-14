@@ -169,7 +169,7 @@ function pistaFunction(frase) {
             pista = "Si oramos, Dios nos dice";
             break;
         case 'PEREZCO QUE PEREZCA':
-            pista = "Lo dijo la una mujer que fue reina, 'y si ...'";
+            pista = "Lo dijo una mujer que fue reina, 'y si ...'";
             break;       
         default:  // El defaul se puede omitir // 
             pista = "No hay pistas";
