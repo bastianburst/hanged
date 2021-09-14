@@ -31,6 +31,9 @@ palabras_array.push("CUEVADEADULAM");
 palabras_array.push("DOMARLALENGUA");
 palabras_array.push("UNMUNDODEMALDAD");
 palabras_array.push("NOSEINQUIETEN");
+palabras_array.push("PEREZCOQUEPEREZCA");
+
+
 
 
 /*Frases estas se mostrarán en el final del juego ya que viene con espacios*/
@@ -42,6 +45,7 @@ frases_array.push("CUEVA DE ADULAM");
 frases_array.push("DOMAR LA LENGUA");
 frases_array.push("UN MUNDO DE MALDAD");
 frases_array.push("NO SE INQUIETEN");
+frases_array.push("PEREZCO QUE PEREZCA");
 
 
 
@@ -164,7 +168,9 @@ function pistaFunction(frase) {
         case 'NO SE INQUIETEN':
             pista = "Si oramos, Dios nos dice";
             break;
-        
+        case 'PEREZCO QUE PEREZCA':
+            pista = "Lo dijo la una mujer que fue reina, 'y si ...'";
+            break;       
         default:  // El defaul se puede omitir // 
             pista = "No hay pistas";
     }
